@@ -1,14 +1,17 @@
 const swiper = new Swiper(".swiper-container", {
   direction: "horizontal",
-  slidesPerView: 2,
-  spaceBetween: 30,
+  slidesPerView: 5,
+  spaceBetween: 10,
   loop: true,
   mousewheel: true,
+  
 
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
     type : 'bullets', // 버튼 모양 결정 "bullets", "fraction" 
+    dynamicBullets: true,
+    dynamicMainBullets: 3,
   },
 
   autoplay : {  // 자동 슬라이드 설정 , 비 활성화 시 false
