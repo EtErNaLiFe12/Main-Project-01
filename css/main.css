@@ -40,5 +40,8 @@
   font-size: 30px;
   cursor: pointer;
 }
-
+.clicked { 
+  color: #fb4;
+  font-size: 40px;
+}
 
