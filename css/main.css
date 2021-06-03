@@ -44,4 +44,23 @@
   color: #fb4;
   font-size: 40px;
 }
+.time-container {
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 70px;
+  color: #fb5849;
+}
+#bt__reset {
+  padding: 15px;
+  background-color: #fb5849;
+  border: 2px solid #fb5849;
+  border-radius: 10px;
+}
+#bt__reset a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+}
+
 
