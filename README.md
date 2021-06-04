@@ -21,8 +21,8 @@
   ```
   1. JS 이벤트 리스너를 통해 classList로 click시 클래스를 추가 및 해제 하여 스타일 변경
   1. STOP-WATCH 추가 - 페이지 로딩 후에 스크립트 실행을 위해 window.onload를 사용하여 페이지 로딩 후  
-  자동 실행 되도록 하였고  기존 start / stop 버튼은 삭제하고 reset 버튼에는 a 태그로 묶어 클릭시 현 페이지로 이동 하므로써  
-  RESET 기능을 사용하도록 하였습니다. (SLIDE-SHOW#2~3번 동일)
+  자동 실행 되도록 하였고 기존 start / stop 버튼은 삭제하고 reset 버튼에는 a 태그로 묶어 클릭시  
+  현 페이지로 이동 하므로써 RESET 기능을 사용하도록 하였습니다. (SLIDE-SHOW#2~3번 동일)
 
   ```js 
   // 코드 앞단 - window.onload로 페이지 로딩 후에 스크립트 실행을 시킴
