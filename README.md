@@ -59,4 +59,8 @@
     <input type="checkbox" id=menuicon >
     <label for="menuicon" class="menubtn">
   ```
-   
+  ### HIDDEN-PAGE#5
+
+  1. 전체 화면을 반전시켜 클릭시 dark-mode 및 light-mode 전환
+  1. tab 형식으로 각 tab 클릭시 내부 내용을 바꿈.
+  1. tab 구현은 input 태그의 radio 속성을 이용.
