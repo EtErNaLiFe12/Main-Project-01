@@ -107,6 +107,15 @@ header > div h1 a {
   margin: 0 auto;
   min-height: 600px;
   background: rgba(221, 134, 134, 0.5);
+  transition: 1s;
+}
+.container .contents:hover {
+  width: 400px;
+  background-color: #fff;
+}
+.container .contents a {
+  text-decoration: none;
+  color: #fff;
 }
 .container .sidebar {
   position: fixed;
