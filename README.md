@@ -43,8 +43,6 @@
  ```js
   const flipEl = document.querySelectorAll('.card')
 
-  let clicked = false;
-
   for( i = 0; i < flipEl.length; i++ ) {
     flipEl[i].addEventListener ('click', function () {
           this.classList.toggle('clicked')
@@ -54,13 +52,46 @@
 ### HIDDEN-PAGE#4
 
   1. Input 태그의 checkbox를 통해 클릭시 side-bar 보이기 및 재 클릭시 side-bar 사라지게 함.  
-     (input 태그와 label 태그의 연결 방법 - input의 id 값과 label의 for의 값을 일치 시킴.)
+     
   ``` html
+  <!-- input 태그와 label 태그의 연결 방법 - input의 id 값과 label의 for의 값을 일치 시킴. -->
     <input type="checkbox" id=menuicon >
     <label for="menuicon" class="menubtn">
   ```
   ### HIDDEN-PAGE#5
 
   1. 전체 화면을 반전시켜 클릭시 dark-mode 및 light-mode 전환
+  ```js
+  const dlMode = document.getElementById('mo-le')
+  const tiMode = document.getElementById('dark-md')
+  const daliMode = document.querySelector('body')
+  let ldMode = false;
+
+  dlMode.addEventListener('click', () => {
+    ldMode = !ldMode;
+    if(ldMode) {
+      daliMode.classList.add('dark')
+      tiMode.classList.add('dark')
+      dlMode.classList.add('move-to-left')
+    } else {
+      daliMode.classList.remove('dark')
+      tiMode.classList.remove('dark')
+      dlMode.classList.remove('move-to-left')
+    }
+  })
+  ```
+  1. dark-mode 상태에서의 내용들에 easing function 적용 (CDN LINKED)
+
+  ```html
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  ```
+  ```js
+  // span class="t1"~"t9" 에 각각 gsap.js에 애니메이션 추가
+  
+  ```
+
+  
+  ### HIDDEN-PAGE#6
+
   1. tab 형식으로 각 tab 클릭시 내부 내용을 바꿈.
   1. tab 구현은 input 태그의 radio 속성을 이용.
