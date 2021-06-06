@@ -1,0 +1,136 @@
+/* COMMON / DARK-MODE */
+body {
+  transition: all 1s;
+  margin: 0;
+  padding: 0;
+}
+body.dark {
+  background-color: rgba(5, 5, 5, 9);
+}
+.d-l-mode {
+  position: fixed;
+  top: -30px;
+  left: 10px;
+}
+.d-l-mode .sub-mode {
+  display: flex;
+  width: 80px;
+  height: 100px;
+  justify-content: left;
+  align-items: center; 
+}
+.d-l-mode .sub-mode span {
+ position: relative;
+ transition: all 0.7s;
+}
+.d-l-mode .sub-mode span:nth-child(1) {
+  position: absolute;
+  display: inline-block;
+  width: 35px;
+  height: 20px;
+  background-color: #fb5849;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+.d-l-mode .sub-mode span:nth-child(2) {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  margin-left: 1.5px;
+  background-color: #fff;
+}
+.d-l-mode .sub-mode span.move-to-left {
+  transform: translateX(calc(17px - 2px));
+  background-color: rgba(5, 5, 5, 9);
+}
+.main-hd {
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+.main-hd .ti-hd {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.inner {
+  position: absolute;
+  width: 1500px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.main-hd .ti-hd .inner .title {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.main-hd .ti-hd .inner .title h1 {
+  line-height: 100px;
+  margin: 0;
+  color: #fff;
+  display: none;
+}
+.main-hd .ti-hd .inner .title h1.dark {
+  color: #fb5849;
+  display: block;
+}
+
+/* TEXT-PART */
+
+.text-container {
+  position: relative;
+  width: 1500px;
+  height: 800px;
+}
+.text-container span {
+  position: absolute;
+  font-size: 24px;
+  font-weight: 700;
+  display: none;
+}
+.text-container span.dark {
+  color: #fb5849;
+  display: block;
+}
+.text-container span:nth-child(1) {
+  top: 200px;
+  left: 300px;
+}
+.text-container span:nth-child(2) {
+  top: 500px;
+  right: 300px;
+}
+.text-container span:nth-child(3) {
+  bottom: 150px;
+  right: 600px;
+}
+.text-container span:nth-child(4) {
+  bottom: 700px;
+  left: 600px;
+}
+.text-container span:nth-child(5) {
+  top: 520px;
+  left: 250px;
+}
+.text-container span:nth-child(6) {
+  bottom: 660px;
+  right: 420px;
+}
+.text-container span:nth-child(7) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.text-container span:nth-child(8) {
+  bottom: 100px;
+  left: 50px;
+}
+.text-container span:nth-child(9) {
+  top: 50px;
+  left: 100px;
+}
