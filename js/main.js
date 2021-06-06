@@ -20,9 +20,9 @@ animationEl.addEventListener ('click', function () {
     const appendTens = document.getElementById("tenMillis");
     const appendSeconds = document.getElementById("seconds");
     const appendMinutes = document.getElementById("minutes");
-    const buttonStart = document.getElementById("bt__start");
-    const buttonStop = document.getElementById("bt__stop");
-    const buttonReset = document.getElementById("bt__reset");
+    // const buttonStart = document.getElementById("bt__start");
+    // const buttonStop = document.getElementById("bt__stop");
+    // const buttonReset = document.getElementById("bt__reset");
     let intervalId;
      
     window.onload = function(){
@@ -30,17 +30,17 @@ animationEl.addEventListener ('click', function () {
       intervalId = setInterval(operateTimer, 10)
     }
      
-    buttonStop.onclick = function(){
-      clearInterval(intervalId)
-    }
+    // buttonStop.onclick = function(){
+    //   clearInterval(intervalId)
+    // }
      
-    buttonReset.onclick = function(){
-      clearInterval(intervalId)
-      tenMillis = 0; seconds = 0; minutes = 0;
-      appendTens.textContent = "00"
-      appendSeconds.textContent = "00"
-      appendMinutes.textContent = "00"
-    }
+    // buttonReset.onclick = function(){
+    //   clearInterval(intervalId)
+    //   tenMillis = 0; seconds = 0; minutes = 0;
+    //   appendTens.textContent = "00"
+    //   appendSeconds.textContent = "00"
+    //   appendMinutes.textContent = "00"
+    // }
      
     // 10ms 마다 시간에 대한 숫자가 증가한다!
     function operateTimer(){
