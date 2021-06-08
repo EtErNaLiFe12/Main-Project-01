@@ -138,7 +138,7 @@ body.dark {
   width: 100px;
   height: 100px;
   background-color: #fff;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .hden a {
   display: block;
