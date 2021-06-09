@@ -2,7 +2,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  
 }
 .inner {
   position: relative;
@@ -33,6 +32,8 @@ input[type="radio"] + label {
   color: #fff;
   font-size: 24px;
   font-weight: 700;
+  margin: 5px;
+  margin-bottom: 0;
 }
 .content {
   position: relative;
@@ -317,4 +318,136 @@ input[id="tab-4"]:checked ~ .con4 {
   height: 50px;
   border-radius: 50%;
   background-color: #000;
+}
+
+/* ------------------------ */
+
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+
+.box{
+  display: inline-block;
+  width: 50%;
+  height: 700px;
+  position: relative;
+  transition: all .2s ease;
+}
+
+/* -------------- Clock -------------- */
+
+.clock{
+  border-radius: 100px;
+  border: 3px solid #fff;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  top: 50%;
+  /* top: calc(50% - 43px); */
+  left: 50%;
+  /* left: calc(50% - 43px); */
+  transform: translate(-50%, -50%);
+}
+.clock:after{
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: 7%;
+  left: 48%;
+  height: 90px;
+  width: 10px;
+  border-radius: 5px;
+  transform-origin: 50% 97%;
+  animation: grdAiguille 2s linear infinite;
+}
+@keyframes grdAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+.clock:before{
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: 13%;
+  left: 48%;
+  height: 80px;
+  width: 10px;
+  border-radius: 5px;
+  transform-origin: 50% 94%;
+  animation: ptAiguille 12s linear infinite;
+}
+@keyframes ptAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+.box1{
+  display: inline-block;
+  width: 50%;
+  height: 700px;
+  position: relative;
+  transition: all .2s ease;
+}
+
+.swing {
+  border-radius: 100px;
+  border: 3px solid #fff;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  top: 50%;
+  /* top: calc(50% - 43px); */
+  left: 50%;
+  /* left: calc(50% - 43px); */
+  transform: translate(-50%, -50%);
+}
+.box1 .swing > a {
+  text-decoration: none;
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  bottom: 75%;
+  left: 41%;
+  transform-origin: 50% 290%;
+  animation: atEl 3s linear infinite;
+  z-index: 3;
+}
+@keyframes atEl{
+  0%{transform:rotate(90deg);}
+  50%{transform:rotate(270deg);}
+  100%{transform:rotate(90deg);}
+}
+.swing:after{
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: 7%;
+  left: 48%;
+  height: 90px;
+  width: 5px;
+  border-radius: 5px;
+  transform-origin: 50% 100%;
+  animation: swingEl 3s linear infinite;
+}
+@keyframes swingEl{
+  0%{transform:rotate(90deg);}
+  50%{transform:rotate(270deg);}
+  100%{transform:rotate(90deg);}
+}
+.swing:before{
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: 8%;
+  left: 40%;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  transform-origin: 50% 230%;
+  animation: ballEl 3s linear infinite;
+  z-index: 2;
+}
+@keyframes ballEl{
+  0%{transform:rotate(90deg);}
+  50%{transform:rotate(270deg);}
+  100%{transform:rotate(90deg);}
 }
