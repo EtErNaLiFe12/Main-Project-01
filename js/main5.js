@@ -4,16 +4,16 @@
 // ctx.fillStyle = "#fb5849";
 // ctx.fill();
 // ctx.closePath();
+
+// javascript에서 참조할수 있도록 getElementById를 통해 myCanvas라는 id값을 
+// 참조해준뒤 캔버스에 그리기위해 getContext 속성을 이용
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var ballRadius = 10;
-var x = canvas.width / 2;
-var y = canvas.height - 30;
+
+
 var dx = 2;
 var dy = -2;
-var paddleHeight = 15;
-var paddleWidth = 150;
-var paddleX = (canvas.width - paddleWidth) / 2;
+
 var rightPressed = false;
 var leftPressed = false;
 var brickRowCount = 11;
@@ -23,8 +23,7 @@ var brickHeight = 20;
 var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
-var score = 0;
-var lives = 5;
+
 
 var bricks = [];
 for (var c = 0; c < brickColumnCount; c++) {
@@ -84,17 +83,40 @@ function collisionDetection() {
   }
 }
 
+// score drawing
+var score = 0;
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: " + score, 8, 20);
+}
+// lives drawing
+var lives = 5;
+function drawLives() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Lives: " + lives, canvas.width - 65, 20); //text, 캔버스 너비값 - 65에 위치(x값), 상단에서 20 아래로(y값)
+}
+
+// Ball drawing
+var ballRadius = 10;
+var x = canvas.width / 2;
+var y = canvas.height - 30;
 function drawBall() {
   ctx.beginPath();
-  ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+  ctx.arc(x, y, ballRadius, 0, Math.PI * 2); //원의 중심을가리키는 x와 y좌표(시작지점), 원의 반지름, 시작각도와 끝 각도, 그리는 방향(옵션임)
   ctx.fillStyle = "#0095DD";
   ctx.fill();
   ctx.closePath();
 }
 
+//Paddle drawing
+var paddleHeight = 15;
+var paddleWidth = 150;
+var paddleX = (canvas.width - paddleWidth) / 2;
 function drawPaddle() {
   ctx.beginPath();
-  ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+  ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight); // 좌측 위측 폭 높이
   ctx.fillStyle = "#0095DD";
   ctx.fill();
   ctx.closePath();
@@ -118,20 +140,8 @@ function drawBricks() {
   }
 }
 
-function drawScore() {
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#0095DD";
-  ctx.fillText("Score: " + score, 8, 20);
-}
-
-function drawLives() {
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#0095DD";
-  ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
-}
-
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // 위치 이동 전 그림이 남지 않게 좌상단모서리를 표시하는 x와 y 좌표, 직사각형의 우하단 모서리를 표시할 x와 y좌표.
   drawBricks();
   drawBall();
   drawPaddle();
