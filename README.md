@@ -154,3 +154,5 @@
   - animation에 keyframes에 사용한 이름을 같이 사용하므로써 시간, 움직임, 횟수 등을 지정 할 수 있다.
   ---
   ### HIDDEN-PAGE#7
+  - 미니게임 추가 (벽돌깨기) - MDN 참고
+    MDN Web Doc : https://developer.mozilla.org/ko/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
