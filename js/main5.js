@@ -10,32 +10,13 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-
-var dx = 2;
-var dy = -2;
+// 매 프레임마다 공의 x와 y좌표에 더해줄 수
+var dx = 5; 
+var dy = -5;
 
 var rightPressed = false;
 var leftPressed = false;
-var brickRowCount = 11;
-var brickColumnCount = 4;
-var brickWidth = 75;
-var brickHeight = 20;
-var brickPadding = 10;
-var brickOffsetTop = 30;
-var brickOffsetLeft = 30;
 
-
-var bricks = [];
-for (var c = 0; c < brickColumnCount; c++) {
-  bricks[c] = [];
-  for (var r = 0; r < brickRowCount; r++) {
-    bricks[c][r] = {
-      x: 0,
-      y: 0,
-      status: 1
-    };
-  }
-}
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -83,6 +64,12 @@ function collisionDetection() {
   }
 }
 
+// var txt = '#8로  이동';
+// function txtContent() {
+//   ctx.font = "16px Arial";
+//   ctx.fillStyle = "#fb5849";
+//   ctx.fillText("이동: " + txt, 30 , 45);
+// }
 // score drawing
 var score = 0;
 function drawScore() {
@@ -122,6 +109,27 @@ function drawPaddle() {
   ctx.closePath();
 }
 
+// Bricks drawing
+var brickRowCount = 11;
+var brickColumnCount = 4;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+
+var bricks = [];
+for (var c = 0; c < brickColumnCount; c++) {
+  bricks[c] = [];
+  for (var r = 0; r < brickRowCount; r++) {
+    bricks[c][r] = {
+      x: 0,
+      y: 0,
+      status: 1
+    };
+  }
+}
+
 function drawBricks() {
   for (var c = 0; c < brickColumnCount; c++) {
     for (var r = 0; r < brickRowCount; r++) {
@@ -131,8 +139,8 @@ function drawBricks() {
         bricks[c][r].x = brickX;
         bricks[c][r].y = brickY;
         ctx.beginPath();
-        ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = "#0095DD";
+        ctx.rect(brickX, brickY, brickWidth, brickHeight); // 좌측 위측 폭 높이
+        ctx.fillStyle = "#fb5849";
         ctx.fill();
         ctx.closePath();
       }
@@ -148,28 +156,32 @@ function draw() {
   drawScore();
   drawLives();
   collisionDetection();
-
-  if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+  // 캔버스는 좌상단 기준 - 좌상단의 값은 0임.
+  // x에 dx값을 더한 값이 캔버스의 가로 너비 - 공의 반지름을 뺀 값보다 클 경우 || x에 dx값을 더한 값이 공의 반지름값보다 작을 경우 방향 변경
+  if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) { 
     dx = -dx;
   }
+
   if (y + dy < ballRadius) {
     dy = -dy;
   } else if (y + dy > canvas.height - ballRadius) {
-    if (x > paddleX && x < paddleX + paddleWidth) {
-      dy = -dy;
-    } else {
-      lives--;
-      if (!lives) {
-        alert("GAME OVER");
-        document.location.reload();
+
+      if (x > paddleX && x < paddleX + paddleWidth) {
+        dy = -dy;
       } else {
-        x = canvas.width / 2;
-        y = canvas.height - 30;
-        dx = 3;
-        dy = -3;
-        paddleX = (canvas.width - paddleWidth) / 2;
+        lives--;
+
+        if (!lives) {
+          alert("GAME OVER");
+          document.location.reload();
+        } else {
+          x = canvas.width / 2;
+          y = canvas.height - 30;
+          dx = 5;
+          dy = -5;
+          paddleX = (canvas.width - paddleWidth) / 2;
+        }
       }
-    }
   }
 
   if (rightPressed && paddleX < canvas.width - paddleWidth) {
@@ -184,3 +196,6 @@ function draw() {
 }
 
 draw(); // setInterval 함수로 draw() 10ms 마다 실행함)
+
+
+
