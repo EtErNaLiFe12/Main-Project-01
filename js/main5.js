@@ -200,7 +200,7 @@ function draw() {
   collisionDetection();
 
   if(minutes === 1) { //minutes가 1과 같을경우
-    alert('시간 초과!!') // 팝업창 
+    alert('시간 초과!! ' + '게임이 reset 됩니다.') // 팝업창 
     minutes = 0; // 팝업창 누른 직후 minutes 0으로 초기화
     location.reload(); // 새로고침
   }
