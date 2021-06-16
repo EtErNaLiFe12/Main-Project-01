@@ -22,11 +22,21 @@
   letter-spacing: 10px;
   color: #fb5849;
 }
-.inner .content {
+.inner .sub-title {
   position: absolute;
-  bottom: 10px;
+  top: 80%;
   left: 50%;
   transform: translate(-50%);
+  color: #fb5849;
+  font-weight: 700;
+  font-size: 20px;
+}
+.inner .content {
+  position: absolute;
+  top: 750px;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 20px;
 }
 .inner .content ul {
   display: flex;
@@ -34,7 +44,7 @@
 .inner .content ul li {
   color: #fb5849;
   font-weight: 700;
-  margin: 20px;
+  margin: 10px;
 }
 .inner .content ul li:hover {
   color: #000;
@@ -44,7 +54,6 @@
   position: relative;
   width: 100%;
   height: 500px;
-  /* border: 1px solid violet; */
 }
 .main-content canvas {
   position: absolute;
@@ -54,4 +63,7 @@
 }
 .main-content h1 {
   display: none;
+}
+.swal-overlay {
+  background-color: rgba(204, 56, 125, 0.4);
 }
