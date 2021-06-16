@@ -2,15 +2,13 @@
 
 ## SUMMARY
 
-- 이 SIDE PROJECT는 미니게임식으로 #1 부터 진행되며 다음페이지로 넘어가기위해
-  숨겨진 버튼이나 일정 부분 클릭으로 이동을 합니다.
+- 이 SIDE PROJECT는 미니게임식으로 hidden-page#1 부터 #10까지 이동하며 진행하는 방식입니다.
 
-- 각 hidden-page 별로 html+css+js를 이용하여 각각의 다른 간단한 기능들을 구현을 
-  하였습니다.
+- 각 hidden-page 별로 html+css+js를 이용하여 각각의 다른 간단한 기능들을 구현을 하였습니다.   
+  (node.js를 사용하지 않아 npm으로 package를 install하지 않고 CDN을 가져오는 방식으로 하였습니다.)
 
-- 현재는 hidden-page#4 까지 이며 hidden-page#10 까지 구성 예정입니다.
+- hidden-page#10 까지 구성 예정입니다.
 
-- 추후 이 side project에서 사용한 기능들은 참고용으로 사용하기 위함 입니다.
 
 ## HIDDEN-PAGE별 소개
 ---
@@ -97,6 +95,7 @@
   - dark-mode 상태에서의 내용들에 easing function 적용 (CDN LINKED)
 
   ```html
+  <!-- CDN -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   ```
   ```js
@@ -151,8 +150,33 @@
     100%{transform:rotate(360deg);}
   }
   ```
-  - animation에 keyframes에 사용한 이름을 같이 사용하므로써 시간, 움직임, 횟수 등을 지정 할 수 있다.
+  - animation 속성에 keyframes에 사용한 이름을 같이 사용하므로써 시간, 움직임, 횟수 등을 지정 할 수 있다.
   ---
   ### HIDDEN-PAGE#7
+
   - 미니게임 추가 (벽돌깨기) - MDN 참고  
     MDN Web Doc : https://developer.mozilla.org/ko/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
+  - 벽돌깨기 게임에 STOP-WATCH를 추가하여 시간 제한을 둠.
+    (1분30초 후 시간 초과 Alert창 pop-up)
+  - Alert창은 sweetalert.js를 사용 (CDN 참고)
+  ```html
+  <!-- CDN -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  ```
+  ```js
+  // sweetalert.js (외부 라이브러리 사용)
+   swal({ 
+            title: "The End",
+            text: "GAME OVER!!!",
+            icon: "error",
+            buttons: ["CANCEL", "OK"],
+            closeOnClickOutside: false,
+            closeOnEsc: true,
+          }).then(() => {
+            location.reload();
+          });
+  ```
+  - Game complete시 뜨는 alert창에서 confirm을 하면 다음 페이지로 이동하도록 함.
+  ---  
+  ### HIDDEN-PAGE#8
+
