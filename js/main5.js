@@ -16,8 +16,8 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 // 매 프레임마다 공의 x와 y좌표에 더해줄 수
-var dx = 5; 
-var dy = -5;
+var dx = 8; 
+var dy = -8;
 
 var rightPressed = false;
 var leftPressed = false;
@@ -60,8 +60,16 @@ function collisionDetection() {
           b.status = 0;
           score++;
           if (score == brickRowCount * brickColumnCount) {
-            alert("YOU WIN, CONGRATS!");
-            document.location.reload();
+            swal({
+              title: "COMPLETE!!",
+              text: "You can go to next step",
+              icon: "success",
+              buttons: true,
+              closeOnClickOutside: false,
+              closeOnEsc: true,
+            }).then(() => {
+              location.href = "http://127.0.0.1:5507/index-7.html" ;
+            });
           }
         }
       }
@@ -69,12 +77,6 @@ function collisionDetection() {
   }
 }
 
-// var txt = '#8로  이동';
-// function txtContent() {
-//   ctx.font = "16px Arial";
-//   ctx.fillStyle = "#fb5849";
-//   ctx.fillText("이동: " + txt, 30 , 45);
-// }
 
 // score drawing
 var score = 0;
@@ -88,11 +90,11 @@ var lives = 5;
 function drawLives() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#fb5849";
-  ctx.fillText("Lives: " + lives, canvas.width - 65, 20); //text, 캔버스 너비값 - 65에 위치(x값), 상단에서 20 아래로(y값)
+  ctx.fillText("Lives: " + lives, canvas.width - 70, 20); //text, 캔버스 너비값 - 65에 위치(x값), 상단에서 20 아래로(y값)
 }
 
 // Ball drawing
-var ballRadius = 10;
+var ballRadius = 15;
 var x = canvas.width / 2;
 var y = canvas.height - 30;
 function drawBall() {
@@ -105,7 +107,7 @@ function drawBall() {
 
 //Paddle drawing
 var paddleHeight = 15;
-var paddleWidth = 150;
+var paddleWidth = 400;
 var paddleX = (canvas.width - paddleWidth) / 2;
 function drawPaddle() {
   ctx.beginPath();
@@ -125,7 +127,7 @@ appendMinutes.textContent = "00"
 function drawTime() {
   ctx.font = "24px Arial";
   ctx.fillStyle = "#fb5849";
-  ctx.fillText("Stop-Watch: " + appendMinutes.textContent + ":" + appendSeconds.textContent + ":" + appendTens.textContent , 380 , 300);
+  ctx.fillText("STOP-WATCH: " + appendMinutes.textContent + ":" + appendSeconds.textContent + ":" + appendTens.textContent , 380 , 300);
 }
 
 window.onload = function(){
@@ -199,10 +201,24 @@ function draw() {
   drawTime();
   collisionDetection();
 
-  if(minutes === 1) { //minutes가 1과 같을경우
-    alert('시간 초과!! ' + '게임이 reset 됩니다.') // 팝업창 
-    minutes = 0; // 팝업창 누른 직후 minutes 0으로 초기화
-    location.reload(); // 새로고침
+  if(minutes === 1 && seconds === 30 ) {
+    minutes = 0;
+    swal({  // Sweetalert.js 팝업창 
+      title:"Time over",
+      text: "시간 초과!! " + "게임이 reset 됩니다.",
+      icon: "warning",
+      buttons: {
+        confirm: {
+          text:"OK",
+          closeModal: true,
+          visible: true,
+        }
+      },
+      closeOnClickOutside: false,
+      closeOnEsc: false,
+    }).then(function() {
+        location.reload(); // 새로고침
+    });
   }
   
   
@@ -221,13 +237,21 @@ function draw() {
       } else {
         lives--;
         if (!lives) {
-          alert("GAME OVER");
-          document.location.reload();
+          swal({
+            title: "The End",
+            text: "GAME OVER!!!",
+            icon: "error",
+            buttons: ["CANCEL", "OK"],
+            closeOnClickOutside: false,
+            closeOnEsc: true,
+          }).then(() => {
+            location.reload();
+          });
         } else {
           x = canvas.width / 2;
           y = canvas.height - 30;
-          dx = 5;
-          dy = -5;
+          dx = 8;
+          dy = -8;
           paddleX = (canvas.width - paddleWidth) / 2;
         }
       }
