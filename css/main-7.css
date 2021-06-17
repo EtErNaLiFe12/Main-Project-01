@@ -1,0 +1,24 @@
+.container {
+  width: 1800px;
+  height: 900px;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.basic-staggering-demo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.basic-staggering-demo .el {
+  width: 60px;
+  height: 60px;
+  background-color: #fb5849;
+  border-radius: 50%;
+  margin: 10px;
+}
