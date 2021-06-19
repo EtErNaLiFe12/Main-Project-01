@@ -180,3 +180,11 @@
   ---  
   ### HIDDEN-PAGE#8
 
+  - anime.js를 통한 javascript 기반 애니메이션 
+  ```html
+    <script defer src="anime.min.js"></script>
+  ```
+  - STAGGERING
+  - 라인드로잉(SVG 파일)
+  
+
