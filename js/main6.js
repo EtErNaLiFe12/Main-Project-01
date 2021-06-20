@@ -2,7 +2,7 @@ let advancedStaggeringAnimation = (function () {
 const staggerContainerEl = document.querySelector('.stagger-container'); 
 const staggeringEl = staggerContainerEl.querySelector('.basic-staggering'); 
 const dotsFragment = document.createDocumentFragment(); // 메모리에 빈 DOM 노드 생성 
-let grid = [8, 6]; // grid라는 변수를 통해 배열로 0번째 8과 1번째 6을 넣음
+let grid = [8, 5]; // grid라는 변수를 통해 배열로 0번째 8과 1번째 6을 넣음
 let numberOfElements = grid[0] * grid[1]; // grid 0번째 * 1번째 = 48
 let animation;
 let paused = true;
@@ -118,34 +118,29 @@ play();
 })();
 
 
-
     anime({
-        targets: '.svg-container polyline',
+        targets: '.svg-container path',
         // strokeDashoffset 속성 값으로 from to 배열 [from, to]를 설정
         // from 값으로 anime.setDashoffset을, to 값으로 0을 설정
         strokeDashoffset: [ anime.setDashoffset, 0 ],
         easing: 'easeInOutCirc',
         duration: 1000,
-        delay: anime.stagger(50, {start: 1000}),
-        direction: 'alternate',
-        loop: true,
+        delay: anime.stagger(150, {start: 500}),
+        // update: animeEl.addEventListener('click', () => {
+        //        animeEl.classList.toggle('clicked')    
+        // })
       })
 
-    anime({
-        targets: '.svg-container2 path',
-        strokeDashoffset: [ anime.setDashoffset, 0 ],
-        easing: 'easeInOutQuad',
-        duration: 1000,
-        delay: anime.stagger(100, {start: 1000}),
-        direction: 'alternate',
-        loop: true,
-      })
 
-  
-
-
-
-
+// anime({
+//     targets: '.svg-container2 polyline',
+//     strokeDashoffset: [ anime.setDashoffset, 0 ],
+//     easing: 'easeInOutQuad',
+//     duration: 1000,
+//     delay: anime.stagger(100, {start: 1000}),
+//     direction: 'alternate',
+//     loop: true,
+//   })
 
 // anime({
 //   targets: '.el',
@@ -157,3 +152,39 @@ play();
 //   ],
 //   delay: anime.stagger(150, {grid: [8, 6], from: 'center'})
 // });
+const animeEl = document.querySelector('.svg-container');
+const testMaEl = document.querySelector('.stagger-container')
+const testEl = testMaEl.querySelectorAll('.test > .item')
+const stagEl = document.querySelector('.basic-staggering');
+let booLean = false;
+
+  animeEl.addEventListener('click', () => {
+    booLean = !booLean;
+    if(booLean) {
+      animeEl.classList.add('clicked');
+      stagEl.style.display="none";
+    } else {
+      animeEl.classList.remove('clicked');
+      stagEl.style.display="flex";
+    }
+  })
+
+
+
+// for(t=0; t<testEl.length; t++) {
+//   animeEl.addEventListener('click', function () {
+//     testEl.classList.add('dark');
+//   })
+// }
+
+animeEl.addEventListener('click', function () {
+  for(t=0; t<testEl.length; t++) {
+    booLean = booLean;
+    if(booLean) {
+      testEl[t].style.display = 'flex';
+    } else {
+      testEl[t].style.display = 'none';
+    }
+    
+  }
+})
