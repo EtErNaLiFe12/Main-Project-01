@@ -12,36 +12,44 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  background: transparent;
-  /* background-image: linear-gradient(180deg, #fff 8%, #ffb236 200%) */
+  /* background: transparent; */
+  background-image: linear-gradient(145deg, #fff 80%, #ffb236 200%)
 }
 .basic-staggering .el {
   width: 40px;
   height: 40px;
-  background-color: rgba(221, 125, 125, 0.5);
+  background-color: #ffb236;
   border-radius: 50%;
   margin: 50px;
 }
 .main-svg_container {
   position: relative;
-  width: 1500px;
-  height: 800px;
+  width: 1000px;
+  height: 200px;
   margin: auto;
+  border-bottom:2px solid #ffb236;
 }
 .svg-container {
   position: absolute;
+  width: 1000px;
+  text-align: center;
+  top: -200px;
   left: 50%;
   height: 400px;
-  transform: translate(-50%);
+  transition: all 1s;
+  transform: translateX(-50%);
+  cursor: pointer;
+  /* border: 1px solid red; */
   /* stroke-dasharray: 10; */
   /* animation: ani 2s linear infinite; */
 }
-
+.svg-container.clicked {
+  background: rgba(241, 145, 145, 0.4);
+}
 .svg-container2 {
   position: absolute;
-  top: 300px;
+  top: 100px;
   left: 50%;
   height: 400px;
   transform: translate(-50%);
@@ -65,9 +73,37 @@
   width: 70px;
   height: 70px;
   margin: 9px;
-  background-color: #ffb236;
+  background-color: rgba(241, 145, 145, 0.4);
   border-radius: 50%;
   z-index: 0;
 
 }
+
+.stagger-container .test {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+.stagger-container .test .item {
+  margin:20px;
+  width: 100px;
+  height: 500px;
+  border-radius: 10px;
+  display: none;
+}
+.stagger-container .test .item:nth-child(1) { background: #000;}
+.stagger-container .test .item:nth-child(2) { background: #ffb236;}
+.stagger-container .test .item:nth-child(3) { background: #fb5849;}
+.stagger-container .test .item:nth-child(4) { background: rgba(96, 236, 53, 0.856);}
+.stagger-container .test .item:nth-child(5) { background: rgba(241, 145, 145, 0.4);}
+
+
+.stagger-container .test .item:nth-child(1):hover { background:rgba(241, 145, 145, 0.4);}
+.stagger-container .test .item:nth-child(2):hover { background: #000;}
+.stagger-container .test .item:nth-child(3):hover { background: #ffb236;}
+.stagger-container .test .item:nth-child(4):hover { background:  #fb5849;}
+.stagger-container .test .item:nth-child(5):hover { background: rgba(96, 236, 53, 0.856);}
 
