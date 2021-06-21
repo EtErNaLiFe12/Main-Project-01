@@ -1,3 +1,9 @@
+body {
+  background-image: url(../images/cargo-truck-6238695_1920.png);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .stagger-container {
   width: 1200px;
   height: 750px;
@@ -14,7 +20,8 @@
   justify-content: center;
   flex-wrap: wrap;
   /* background: transparent; */
-  background-image: linear-gradient(145deg, #fff 80%, #ffb236 200%)
+  background-color: rgba(241, 239, 239, .2);
+  border-radius: 100px;
 }
 .basic-staggering .el {
   width: 40px;
@@ -23,6 +30,7 @@
   border-radius: 50%;
   margin: 50px;
 }
+
 .main-svg_container {
   position: relative;
   width: 1000px;
@@ -45,7 +53,7 @@
   /* animation: ani 2s linear infinite; */
 }
 .svg-container.clicked {
-  background: rgba(241, 145, 145, 0.4);
+  background: rgba(999, 999, 999, 0.8);
 }
 .svg-container2 {
   position: absolute;
@@ -73,7 +81,7 @@
   width: 70px;
   height: 70px;
   margin: 9px;
-  background-color: rgba(241, 145, 145, 0.4);
+  background-color: rgba(241, 145, 145, .4);
   border-radius: 50%;
   z-index: 0;
 
@@ -93,17 +101,131 @@
   height: 500px;
   border-radius: 10px;
   display: none;
+  cursor: pointer;
+  
+  
 }
-.stagger-container .test .item:nth-child(1) { background: #000;}
-.stagger-container .test .item:nth-child(2) { background: #ffb236;}
-.stagger-container .test .item:nth-child(3) { background: #fb5849;}
-.stagger-container .test .item:nth-child(4) { background: rgba(96, 236, 53, 0.856);}
-.stagger-container .test .item:nth-child(5) { background: rgba(241, 145, 145, 0.4);}
+.stagger-container .test .item:nth-child(1) { 
+  background: #bae;
+  animation: colorEl 2s linear infinite;
+}
+.stagger-container .test .item:nth-child(2) { 
+  background: #ffb236;
+  animation: color2El 2s linear infinite;
+}
+.stagger-container .test .item:nth-child(3) { 
+  background: #fb5849;
+  animation: color3El 2s linear infinite;
+}
+.stagger-container .test .item:nth-child(4) { 
+  background: rgba(96, 236, 53, 0.856);
+  animation: color4El 2s linear infinite;
+}
+.stagger-container .test .item:nth-child(5) { 
+  background: #bae2ba;
+  animation: color5El 2s linear infinite;
+}
+.stagger-container .test .item:nth-child(6) { 
+  background: #9feeee;
+  animation: color6El 2s linear infinite;
+  z-index: 2;
+}
+.stagger-container .test .item:nth-child(1).next {
+  transition: 2s;
+  width: 50px;
+  transform: translateY(-150px) translateX(-380px) rotate(90deg);
+}
+.stagger-container .test .item:nth-child(2).next {
+  transition: 2s;
+  width: 50px;
+  transform: translateY(0px) translateX(-470px) rotate(90deg);
+}
+.stagger-container .test .item:nth-child(3).next {
+  transition: 2s;
+  width: 50px;
+  height: 500px;
+  transform: translateY(-150px) translateX(-50px) rotate(90deg);
+}
+.stagger-container .test .item:nth-child(4).next {
+  transition: 2s;
+  width: 50px;
+  transform: translateY(0px) translateX(-140px) rotate(90deg);
+}
+.stagger-container .test .item:nth-child(5).next {
+  transition: 2s;
+  width: 50px;
+  height: 500px;
+  transform: translateY(-250px) translateX(-50px) rotate(-40deg);
+}
+.stagger-container .test .item:nth-child(6).next {
+  transition: 2s;
+  width: 50px;
+  height: 500px;
+  transform: translateY(100px) translateX(-150px) rotate(40deg);
+}
 
+@keyframes colorEl{
+  0%{background-color: #fb5849;}
+  25%{background-color: #bae;}
+  50%{background-color: rgba(96, 236, 53, 0.856);}
+  75%{background-color: #bae2ba;}
+  100%{background-color: #ffb236;}
+}
 
-.stagger-container .test .item:nth-child(1):hover { background:rgba(241, 145, 145, 0.4);}
-.stagger-container .test .item:nth-child(2):hover { background: #000;}
-.stagger-container .test .item:nth-child(3):hover { background: #ffb236;}
-.stagger-container .test .item:nth-child(4):hover { background:  #fb5849;}
-.stagger-container .test .item:nth-child(5):hover { background: rgba(96, 236, 53, 0.856);}
+@keyframes color2El{
+  0%{background-color: #bae;}
+  25%{background-color: rgba(96, 236, 53, 0.856);}
+  50%{background-color: #bae2ba;}
+  75%{background-color: #ffb236;}
+  100%{background-color: #fb5849;}
+}
 
+@keyframes color3El{
+  0%{background-color: rgba(96, 236, 53, 0.856);}
+  25%{background-color: #bae2ba;}
+  50%{background-color: #ffb236;}
+  75%{background-color: #fb5849;}
+  100%{background-color: #bae;}
+}
+
+@keyframes color4El{
+  0%{background-color: #bae2ba;}
+  25%{background-color: #fb5849;}
+  50%{background-color: #ffb236;}
+  75%{background-color: #bae;}
+  100%{background-color: rgba(96, 236, 53, 0.856) ;}
+}
+
+@keyframes color5El{
+  0%{background-color: #fb5849;}
+  25%{background-color: #ffb236;}
+  50%{background-color: #bae;}
+  75%{background-color: rgba(96, 236, 53, 0.856);}
+  100%{background-color:  #bae2ba;}
+}
+
+@keyframes color6El{
+  0%{background-color: #3bc98e;}
+  25%{background-color: #efa;}
+  50%{background-color: #d84040;}
+  75%{background-color: rgba(96, 236, 53, 0.856);}
+  100%{background-color:  #9feeee;}
+}
+
+.btn_car {
+  z-index: 1;
+}
+.btn_car button {
+  position: absolute;
+  top: 220px;
+  left: 964px;
+  border-radius: 10px;
+  border-style: none;
+  background-image: url(../images/번호판\ 버튼.JPG);
+  display: none;
+}
+.btn_car button a {
+  display: block;
+  width: 53px;
+  height: 53px;
+}
