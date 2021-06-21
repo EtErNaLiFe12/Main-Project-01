@@ -154,8 +154,9 @@ play();
 // });
 const animeEl = document.querySelector('.svg-container');
 const testMaEl = document.querySelector('.stagger-container')
-const testEl = testMaEl.querySelectorAll('.test > .item')
+const testEl = testMaEl.querySelectorAll('.item')
 const stagEl = document.querySelector('.basic-staggering');
+const btnEl = document.querySelector('.btn_car button');
 let booLean = false;
 
   animeEl.addEventListener('click', () => {
@@ -163,9 +164,11 @@ let booLean = false;
     if(booLean) {
       animeEl.classList.add('clicked');
       stagEl.style.display="none";
+      btnEl.style.display="block";
     } else {
       animeEl.classList.remove('clicked');
       stagEl.style.display="flex";
+      btnEl.style.display="none";
     }
   })
 
@@ -178,13 +181,19 @@ let booLean = false;
 // }
 
 animeEl.addEventListener('click', function () {
-  for(t=0; t<testEl.length; t++) {
+  for(let t=0; t<testEl.length; t++) {
     booLean = booLean;
     if(booLean) {
       testEl[t].style.display = 'flex';
     } else {
       testEl[t].style.display = 'none';
     }
-    
-  }
-})
+  };
+});
+
+
+for(let b = 0; b < testEl.length; b++) {
+  testEl[b].addEventListener ('click', function () {
+    this.classList.toggle('next')
+  })
+}
