@@ -6,7 +6,7 @@ body {
 }
 .stagger-container {
   width: 1200px;
-  height: 750px;
+  height: 700px;
   position: relative;
   top: 0;
   left: 0;
@@ -84,16 +84,14 @@ body {
   background-color: rgba(241, 145, 145, .4);
   border-radius: 50%;
   z-index: 0;
-
 }
-
 .stagger-container .test {
   position: absolute;
   display: flex;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
+  z-index: 999; 
 }
 .stagger-container .test .item {
   margin:20px;
@@ -102,8 +100,7 @@ body {
   border-radius: 10px;
   display: none;
   cursor: pointer;
-  
-  
+  transition: 2s;
 }
 .stagger-container .test .item:nth-child(1) { 
   background: #bae;
@@ -128,13 +125,13 @@ body {
 .stagger-container .test .item:nth-child(6) { 
   background: #9feeee;
   animation: color6El 2s linear infinite;
-  z-index: 2;
 }
 .stagger-container .test .item:nth-child(1).next {
   transition: 2s;
   width: 50px;
   transform: translateY(-150px) translateX(-380px) rotate(90deg);
 }
+
 .stagger-container .test .item:nth-child(2).next {
   transition: 2s;
   width: 50px;
@@ -217,8 +214,8 @@ body {
 }
 .btn_car button {
   position: absolute;
-  top: 220px;
-  left: 964px;
+  top: 423px;
+  left: 1317px;
   border-radius: 10px;
   border-style: none;
   background-image: url(../images/번호판\ 버튼.JPG);
