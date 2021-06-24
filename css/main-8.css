@@ -5,7 +5,7 @@ body {
   position: relative;
   display: block;
   margin: auto;
-  background: rgba(100,100,100,0.2);
+  background: #fff;
   z-index: 1;
 }
 /* .bubble {
