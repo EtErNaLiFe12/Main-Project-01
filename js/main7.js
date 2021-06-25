@@ -301,18 +301,59 @@ window.onload = function () {
 
 //--------------------------------------------------------------------------
 
-window.onload = function () {
-  const canvas = document.getElementById('bubbleCanvas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth-10;
-  canvas.height = window.innerHeight-10;
-  bubbles=[];
-  bubbleNumber = 100;
-  let pb = new Image();
-  pb.src="./images/pinkbubble.png";
- 
 
-  class Bubble {
+window.onload = function () {
+  
+  const canvas = document.getElementById('bubblecanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth - 1;
+  canvas.height = window.innerHeight - 1;
+  let bubbles = [];
+  let bubbleNumber = 80;
+  let bbubbles = [];
+  let bbubbleNumber = 120;
+
+  
+  
+
+  let pb = new Image();
+  pb.src="./images/bluebubble.png";
+  let bb = new Image();
+  bb.src="./images/bluebubble.png";
+
+  class blueBubble {
+    constructor(xx,yy) { // ball의 기본 속성들을 정의 
+      this.xx = xx;
+      this.yy = yy;
+      // this.c = ctx.createPattern(pb, 'repeat');
+      // this.c = 'rgba('+Math.random()*255+','+Math.random()*255+','+Math.random()*255+')'; // 공의 색깔을 random으로 설정
+      this.size = 30 + Math.random()*20;
+      this.angle = (Math.random()*(Math.PI*2));
+      this.power = Math.random()*3+4;
+      this.directionX = this.power * Math.cos(this.angle);
+      this.directionY = this.power * Math.sin(this.angle);
+    }
+    update() { // 프레임마다 속성들을 변화시킴 
+      this.xx += this.directionX;
+      this.yy += this.directionY; 
+      
+      if(this.yy + this.size + 100 > canvas.height || this.yy - this.size < -60) { // 바운드 처리
+        this.directionY *= -1;
+      }
+
+      if(this.xx + 130 > canvas.width-this.size ) {
+        this.directionX *= -1;
+      } else if (this.xx - this.size < -40){
+        this.directionX *= -1;
+      }
+    }
+    draw() { // 캔버스에 그려줌
+      ctx.drawImage(bb, this.xx, this.yy, 180, 180);
+      
+    }
+  }
+
+  class bigBubble {
     constructor(x,y) { // ball의 기본 속성들을 정의 
       this.x = x;
       this.y = y;
@@ -323,53 +364,85 @@ window.onload = function () {
       this.power = Math.random()*3+4;
       this.directionX = this.power * Math.cos(this.angle);
       this.directionY = this.power * Math.sin(this.angle);
-   
-      
     }
-    update(){ // 프레임마다 속성들을 변화시킴 
+    update() { // 프레임마다 속성들을 변화시킴 
       this.x += this.directionX;
       this.y += this.directionY; 
-      if(this.y + this.size + 120 > canvas.height || this.y - this.size < -30){ // 바운드 처리
+      
+      if(this.y + this.size + 220 > canvas.height || this.y - this.size < -100) { // 바운드 처리
         this.directionY *= -1;
-        }
-      if(this.x + 100 > canvas.width-this.size ) {
-        // this.x = canvas.width-this.size - 130;
+      }
+
+      if(this.x + 230 > canvas.width-this.size ) {
         this.directionX *= -1;
-      } else if (this.x - this.size < -40){
+      } else if (this.x - this.size < -100){
         this.directionX *= -1;
       }
     }
-    draw(){ // 넘어온 속성값대로 캔버스에 그림을 그려줌
-      ctx.drawImage(pb,this.x,this.y,150,150);
-          // ctx.fillStyle = this.c;
-          // ctx.beginPath();
-          // ctx.arc(this.x, this.y, this.size, 0, Math.PI*2, true);
-          // ctx.closePath();
-          // ctx.fill();
+    draw() { // 캔버스에 그려줌
+        ctx.drawImage(pb, this.x, this.y, 300, 300);
     }
   }
 
-  function init(){ // 공의 갯수만큼 공의 객체 생성
-    for(i=0;i<bubbleNumber;i++){
-      bubbles[i] = new Bubble(canvas.width*0.4, canvas.height*0.5);
+  function init() { // 공의 갯수만큼 공의 객체 생성
+    
+    for(i=0;i<bubbleNumber;i++) {
+      bubbles[i] = new bigBubble(canvas.width*0.45, canvas.height*0.5);
     }
+    
+    for(i=0;i<bbubbleNumber;i++) {
+      bbubbles[i] = new blueBubble(canvas.width*0.45, canvas.height*0.5);
+    }
+
   }
 
-function animate(){ // 매 프레임마다 벌어지는 일들
-  ctx.fillStyle='rgba(255,255,255,1)'; // 전체 화면 지우기. 하얀색의 alpha값을 변경함에 따라 공의 잔상이 달라진다.
+
+function animate() { // 매 프레임마다 벌어지는 일들
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  for(i=0;i<bubbleNumber;i++){
+
+  for(i = 0; i < bubbleNumber; i++) {
     bubbles[i].update();
     bubbles[i].draw();
   }
+
+  for(i = 0; i < bbubbleNumber; i++) {
+    bbubbles[i].update();
+    bbubbles[i].draw();
+  }
+
   window.addEventListener('resize',function(){ // 화면 크기가 변하면 캔버스 크기도 변경해줌
-    canvas.width=window.innerWidth;
-    canvas.height=window.innerHeight;
+    canvas.width=window.innerWidth - 10;
+    canvas.height=window.innerHeight - 10;
   })
+  
+
   requestAnimationFrame(animate);
 }
 
   init();
   animate();
-
+  
 }
+
+const canv = document.getElementById('noticecanvas');
+const ct = canv.getContext('2d');
+let text = '버블 중 다른 하나를 찾아 다음 페이지로 이동하세요. '
+let text2 = '(화면을 클릭하면 현재창은 사라집니다.) '
+let text3 = '※힌트 - 다른 하나의 버블은 마우스를 가져다가 대면 사이즈가 커집니다. '
+ct.beginPath();
+ct.fillStyle = '#fff';
+ct.font = "24px bold Arial";
+ct.fillText (text, 480,330);
+
+ct.beginPath();
+ct.fillStyle = '#fb5849';
+ct.font = "18px bold";
+ct.fillText (text2, 590,380);
+
+ct.beginPath();
+ct.fillStyle = '#fb5849';
+ct.font = "15px bold";
+ct.fillText(text3, 500, 620);
+canv.addEventListener('click', function() {
+  canv.classList.toggle('hide');
+})
