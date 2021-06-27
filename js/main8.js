@@ -1,15 +1,19 @@
 const canvas = document.getElementById('raindrop');
 const ctx = canvas.getContext('2d');
+const canvas1 = document.getElementById('cover');
+const ctx1 = canvas1.getContext('2d');
+const mc = document.querySelector('.main-container');
 
 
-let wi = 350;
-let he = 450;
+let wi = 400;
+let he = 400;
 
 let raindp = [];
 let raindp1 = [];
 
 let raindpNum = 80;
 let raindpNum1 = 80;
+
 
 
 
@@ -64,7 +68,7 @@ class rain1 {
     }
   }
   draw() {
-    ctx.drawImage(rd, this.xx, this.yy, wi, he);
+    ctx.drawImage(rd1, this.xx, this.yy, wi, he);
   }
 }
 
@@ -92,8 +96,7 @@ function animate() {
   window.addEventListener('resize', function() { // 화면 크기가 변하면 캔버스 크기도 변경해줌
     canvas.width=window.innerWidth - 10;
     canvas.height=window.innerHeight - 10;
-    canvas1.width=window.innerWidth - 10;
-    canvas1.height=window.innerHeight - 10;
+    
   })
 
     const start = requestAnimationFrame(animate);
@@ -101,6 +104,7 @@ function animate() {
     canvas.addEventListener('click', function () {
       cancelAnimationFrame(start);
       canvas.style.display = "none";
+      mc.style.display = "block";
       canvas1.classList.add('cover');
       
     })
@@ -112,10 +116,69 @@ animate();
 
 } 
 
-const canvas1 = document.getElementById('cover');
-const ctx1 = canvas1.getContext('2d');
+let wt = 40;
+let ht = 40;
 
-// window.onload = function () {
-  
+let stardp = [];
+let stardpNum = 100;
 
-// }
+
+let sd = new Image();
+sd.src = "./images/star3.png";
+
+class star {
+  constructor(xs,ys) {
+    this.xs = xs;
+    this.ys = ys;
+    this.angle = (Math.random()*(Math.PI*2));
+    this.power = Math.random()*3+5;
+    this.directionXs = this.power * Math.random()*3+2;
+    this.directionYs = this.power * Math.random(this.angle);
+
+ 
+  }
+  condition() {
+    this.xs +=  this.directionXs;
+    this.ys +=  this.directionYs;
+
+    if(this.xs + this.directionXs > canvas1.width) {
+      this.xs = 0;
+    }
+    if(this.ys + this.directionYs > canvas1.height) {
+      this.ys = 0;
+    }
+
+
+  }
+  drawing() {
+    ctx1.drawImage(sd, this.xs, this.ys, wt, ht);
+  }
+}
+
+function into() {
+  for(let i = 0; i < stardpNum; i++) {
+    stardp[i] = new star(-200, 0);
+  }
+}
+
+function animation() {
+  ctx1.clearRect(0,0,canvas1.width, canvas1.height);
+
+  for(let i = 0; i < stardpNum; i++) {
+    stardp[i].condition();
+    stardp[i].drawing();
+  }
+
+  window.addEventListener('resize', function() { // 화면 크기가 변하면 캔버스 크기도 변경해줌
+    canvas1.width=window.innerWidth - 10;
+    canvas1.height=window.innerHeight - 10;
+  })
+
+  requestAnimationFrame(animation);
+
+
+}
+
+into();
+animation();
+
