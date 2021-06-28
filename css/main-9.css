@@ -22,7 +22,7 @@ body {
 .main-container {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 800px;
   text-align: center;
   display: none;
   z-index: 3;
@@ -49,7 +49,7 @@ body {
   margin: auto;
   line-height: 100px;
   color: rgba(0,0,0,.5);
-  font-size: 80px;
+  font-size: 60px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .main-container .inner .title h2 {
@@ -71,8 +71,9 @@ body {
   justify-content: center;
   align-items: center;
   width: 1500px;
-  height: 400px;
+  height: 300px;
   z-index: 3;
+  background-color: rgba(255, 100, 100, .3);
   display: none;
 }
 
@@ -81,11 +82,11 @@ body {
   position: absolute;
   left:0;
   width: 750px;
-  height: 400px;
+  height: 300px;
   box-sizing: border-box;
-  border-bottom: 5px solid rgba(0,0,0,.6);
-  border-right: 5px solid rgba(0,0,0,.6);
-  background-color: rgba(255, 100, 100, 0.4);
+  border-bottom: 4px dashed rgba(0,0,0,.6);
+  border-right: 4px dashed rgba(0,0,0,.6);
+  
 }
 .main-container .ct-side .content-l p {
   position:absolute;
@@ -104,17 +105,16 @@ body {
   position: absolute;
   right: 0;
   width: 750px;
-  height: 400px;
+  height: 300px;
   box-sizing: border-box;
-  background-color: rgba(255, 100, 100, 0.4);
 }
 
 /* CT-SIDE-RIGHT TOP/BOTTOM PART */
 .main-container .ct-side .content-r .c-t {
   position: absolute;
   width: 750px;
-  height: 200px;
-  border-bottom: 5px solid rgba(0,0,0,.6);
+  height: 150px;
+  border-bottom: 4px dashed rgba(0,0,0,.6);
   box-sizing: border-box;
 }
 
@@ -122,10 +122,10 @@ body {
 .main-container .ct-side .content-r .c-b {
   position: absolute;
   width: 750px;
-  height: 200px;
+  height: 150px;
   left: 0;
   bottom: 0;
-  border-bottom: 5px solid rgba(0,0,0,.6);
+  border-bottom: 4px dashed rgba(0,0,0,.6);
   box-sizing: border-box;
 }
 
@@ -135,7 +135,7 @@ body {
 .main-container .ct-side .content-r .c-b ul {
   display: flex;
   width: 750px;
-  height: 200px;
+  height: 150px;
   justify-content: center;
   align-items: center;
 }
@@ -150,14 +150,47 @@ body {
 }
 .main-container .ct-side .content-r .c-t ul li i,
 .main-container .ct-side .content-r .c-b ul li i {
+  transition: .2s;
   font-size: 50px;
+  color: rgba(252, 85, 63, 0.9);
+}
+.main-container .ct-side .content-r .c-t ul li i:hover,
+.main-container .ct-side .content-r .c-b ul li i:hover {
+  font-size: 60px;
 }
 .main-container .ct-side .content-r .c-t ul li > a,
 .main-container .ct-side .content-r .c-b ul li > a {
   display: block;
   text-decoration: none;
-  color: rgba(0,0,0,.8);
+  color: rgba(0,0,0,.6);
   width: 70px;
   height: 70px;
   line-height: 20px;
+}
+
+/* MID-CONTAINER PART */
+.mid-container {
+  position: relative;
+  width: 1500px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  background-color: rgba(251, 175, 35, .3);
+}
+.mid-container .mid-l {
+  position: absolute;
+  width: 750px;
+  height: 300px;
+  box-sizing: border-box;
+  border-bottom: 4px dashed rgba(0,0,0,.6);
+  border-right: 4px dashed rgba(0,0,0,.6);
+}
+.mid-container .mid-r {
+  position: absolute;
+  right: 0;
+  width: 750px;
+  height: 300px;
+  box-sizing: border-box;
+  border-bottom: 4px dashed rgba(0,0,0,.6);
 }
