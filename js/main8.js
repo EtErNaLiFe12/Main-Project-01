@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const canvas1 = document.getElementById('cover');
 const ctx1 = canvas1.getContext('2d');
 const mc = document.querySelector('.main-container');
+const ctSide = document.querySelector('.ct-side');
 
 
 let wi = 400;
@@ -104,9 +105,9 @@ function animate() {
     canvas.addEventListener('click', function () {
       cancelAnimationFrame(start);
       canvas.style.display = "none";
-      mc.style.display = "block";
       canvas1.classList.add('cover');
-      
+      mc.style.display = "block";
+      ctSide.style.display = "flex";
     })
 
 }
@@ -170,8 +171,8 @@ function animation() {
   }
 
   window.addEventListener('resize', function() { // 화면 크기가 변하면 캔버스 크기도 변경해줌
-    canvas1.width=window.innerWidth - 10;
-    canvas1.height=window.innerHeight - 10;
+    canvas1.width=window.innerWidth;
+    canvas1.height=window.innerHeight;
   })
 
   requestAnimationFrame(animation);
