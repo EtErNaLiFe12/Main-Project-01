@@ -214,15 +214,17 @@ body {
 }
 .btn_car button {
   position: absolute;
-  top: 423px;
-  left: 1317px;
+  top: 422px;
+  left: 1318px;
   border-radius: 10px;
   border-style: none;
   background-image: url(../images/번호판\ 버튼.JPG);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: none;
 }
 .btn_car button a {
   display: block;
   width: 53px;
-  height: 53px;
+  height: 56px;
 }
