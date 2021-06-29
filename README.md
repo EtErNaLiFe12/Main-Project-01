@@ -186,5 +186,70 @@
   ```
   - STAGGERING
   - 라인드로잉(SVG 파일)
-  
+  ```js
+  anime({
+          targets: '.svg-container path',
+          // strokeDashoffset 속성 값으로 from to 배열 [from, to]를 설정
+          // from 값으로 anime.setDashoffset을, to 값으로 0을 설정
+          strokeDashoffset: [ anime.setDashoffset, 0 ],
+          easing: 'easeInOutCirc',
+          duration: 1000,
+          delay: anime.stagger(150, {start: 500}),
+          // update: animeEl.addEventListener('click', () => {
+          //        animeEl.classList.toggle('clicked')    
+          // })
+        })
+  ```
+  - @KeyFrame으로 색상 조정
+  ```css
+  @keyframes colorEl{
+  0%{background-color: #fb5849;}
+  25%{background-color: #bae;}
+  50%{background-color: rgba(96, 236, 53, 0.856);}
+  75%{background-color: #bae2ba;}
+  100%{background-color: #ffb236;}
+  }
 
+  @keyframes color2El{
+    0%{background-color: #bae;}
+    25%{background-color: rgba(96, 236, 53, 0.856);}
+    50%{background-color: #bae2ba;}
+    75%{background-color: #ffb236;}
+    100%{background-color: #fb5849;}
+  }
+
+  @keyframes color3El{
+    0%{background-color: rgba(96, 236, 53, 0.856);}
+    25%{background-color: #bae2ba;}
+    50%{background-color: #ffb236;}
+    75%{background-color: #fb5849;}
+    100%{background-color: #bae;}
+  }
+
+  @keyframes color4El{
+    0%{background-color: #bae2ba;}
+    25%{background-color: #fb5849;}
+    50%{background-color: #ffb236;}
+    75%{background-color: #bae;}
+    100%{background-color: rgba(96, 236, 53, 0.856) ;}
+  }
+
+  @keyframes color5El{
+    0%{background-color: #fb5849;}
+    25%{background-color: #ffb236;}
+    50%{background-color: #bae;}
+    75%{background-color: rgba(96, 236, 53, 0.856);}
+    100%{background-color:  #bae2ba;}
+  }
+
+  @keyframes color6El{
+    0%{background-color: #3bc98e;}
+    25%{background-color: #efa;}
+    50%{background-color: #d84040;}
+    75%{background-color: rgba(96, 236, 53, 0.856);}
+    100%{background-color:  #9feeee;}
+  }
+  ```
+### HIDDEN-PAGE#9
+
+ - canvas 사용
