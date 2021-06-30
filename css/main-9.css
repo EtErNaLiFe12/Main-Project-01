@@ -152,11 +152,11 @@ body {
 .main-container .ct-side .content-r .c-b ul li i {
   transition: .2s;
   font-size: 50px;
-  color: rgba(252, 85, 63, 0.9);
+  color: rgba(228, 224, 224, 0.9);
 }
 .main-container .ct-side .content-r .c-t ul li i:hover,
 .main-container .ct-side .content-r .c-b ul li i:hover {
-  font-size: 60px;
+  transform: scale(1.3);
 }
 .main-container .ct-side .content-r .c-t ul li > a,
 .main-container .ct-side .content-r .c-b ul li > a {
@@ -173,10 +173,18 @@ body {
   position: relative;
   width: 1500px;
   height: 300px;
-  justify-content: center;
-  align-items: center;
   z-index: 3;
+  transition: .5s;
   background-color: rgba(251, 175, 35, .3);
+}
+.mid-container h1 {
+  position: absolute;
+  width: 1500px;
+  line-height: 300px;
+  font-size: 30px;
+  font-weight: 700;
+  color: rgba(0,0,0,.6);
+  z-index: 4;
 }
 .mid-container .mid-l {
   position: absolute;
@@ -184,7 +192,23 @@ body {
   height: 300px;
   box-sizing: border-box;
   border-bottom: 4px dashed rgba(0,0,0,.6);
-  border-right: 4px dashed rgba(0,0,0,.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mid-container .mid-l a {
+  text-decoration: none;
+  color:rgba(228, 224, 224, 0.9);
+}
+.mid-container .mid-l a i {
+  font-size: 50px;
+  margin: 30px;
+  transition: 1s;
+  z-index: 4;
+  display: none;
+}
+.mid-container .mid-l a i:hover {
+  transform: scale(1.7);
 }
 .mid-container .mid-r {
   position: absolute;
@@ -193,4 +217,31 @@ body {
   height: 300px;
   box-sizing: border-box;
   border-bottom: 4px dashed rgba(0,0,0,.6);
+}
+.mid-container .mid-r p {
+  position: absolute;
+  width: 750px;
+  line-height: 300px;
+  font-size: 36px;
+  font-weight: 700;
+  color: rgba(0,0,0,.6);
+  display: none;
+}
+.mid-container .mid-l.turn i {
+  transform: rotateY(180deg);
+  display: block;
+}
+.mid-container .mid-r.turn p {
+  transform: rotateY(180deg);
+  display: block;
+}
+.mid-container.turn {
+  transform: rotateY(180deg);
+}
+.mid-container.turn h1 {
+  display: none;
+}
+.mid-container.turn .mid-l a i span {
+  font-size: 20px;
+  color:rgba(228, 224, 224, 0.9);
 }
