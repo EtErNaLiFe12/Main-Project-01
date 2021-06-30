@@ -183,3 +183,14 @@ function animation() {
 into();
 animation();
 
+
+const midCon = document.querySelector('.mid-container');
+const midleft = document.querySelector('.mid-l');
+const midRight = document.querySelector('.mid-r');
+
+midCon.addEventListener('click', () => {
+  midCon.classList.toggle('turn');
+  midleft.classList.toggle('turn');
+  midRight.classList.toggle('turn');
+})
+
