@@ -250,6 +250,8 @@
     100%{background-color:  #9feeee;}
   }
   ```
+
+  ---
 ### HIDDEN-PAGE#9
 
  - canvas 사용
