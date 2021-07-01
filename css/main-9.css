@@ -22,7 +22,7 @@ body {
 .main-container {
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 100%;
   text-align: center;
   display: none;
   z-index: 3;
@@ -172,15 +172,16 @@ body {
 .mid-container {
   position: relative;
   width: 1500px;
-  height: 300px;
+  height: 250px;
   z-index: 3;
   transition: .5s;
   background-color: rgba(251, 175, 35, .3);
+  cursor: pointer;
 }
 .mid-container h1 {
   position: absolute;
   width: 1500px;
-  line-height: 300px;
+  line-height: 250px;
   font-size: 30px;
   font-weight: 700;
   color: rgba(0,0,0,.6);
@@ -189,7 +190,7 @@ body {
 .mid-container .mid-l {
   position: absolute;
   width: 750px;
-  height: 300px;
+  height: 250px;
   box-sizing: border-box;
   border-bottom: 4px dashed rgba(0,0,0,.6);
   display: flex;
@@ -214,14 +215,14 @@ body {
   position: absolute;
   right: 0;
   width: 750px;
-  height: 300px;
+  height: 250px;
   box-sizing: border-box;
   border-bottom: 4px dashed rgba(0,0,0,.6);
 }
 .mid-container .mid-r p {
   position: absolute;
   width: 750px;
-  line-height: 300px;
+  line-height: 250px;
   font-size: 36px;
   font-weight: 700;
   color: rgba(0,0,0,.6);
@@ -241,7 +242,143 @@ body {
 .mid-container.turn h1 {
   display: none;
 }
-.mid-container.turn .mid-l a i span {
-  font-size: 20px;
-  color:rgba(228, 224, 224, 0.9);
+
+/* BOTTOM-CONTAINER PART */
+.bot-container {
+  position: relative;
+  width: 1500px;
+  height: 250px;
+  z-index: 3;
+  transition: .5s;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
 }
+.bot-container img {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 50px;
+  left: 60%;
+  transform: translate(-50%);
+}
+.bot-container p {
+  position: absolute;
+  font-size: 30px;
+  font-weight: 700;
+  color:rgba(0,0,0,.6);
+  left: 150px;
+  width: 1000px;
+  line-height: 250px;
+}
+
+.side-bar  {
+  position: relative;
+}
+.side-bar i {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 40px;
+  color:rgba(228, 224, 224, 0.9);
+  z-index: 5;
+}
+.side-bar .side-menu {
+  position: fixed;
+  left: 0;
+  width: 400px;
+  height: 1000px;
+  background: rgba(0,0,0,.8);
+  transform: translateX(-400px);
+  transition: 1s;
+  z-index: 4;
+}
+.side-bar .side-menu.bar {
+  transform: translateX(0);
+}
+.side-bar .side-menu ul {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  line-height: 80px;
+}
+.side-bar .side-menu ul li {
+  color: #fff;
+  border-bottom:3px solid rgba(228, 224, 224, 0.9);
+  width: 400px;
+  height: 80px;
+  font-size: 30px;
+  font-weight: 700;
+}
+.side-bar .side-menu ul li:first-child {
+  border-top: 3px solid rgba(228, 224, 224, 0.9);
+}
+.side-bar .side-menu ul li:hover {
+  color: #000;
+  background-color: #fff;
+}
+.side-bar .side-menu ul {
+  position: absolute;
+}
+.side-bar .side-menu ul li:nth-child(1) i {
+  left: 50%;
+  transform: translate(-50%);
+}
+.side-bar .side-menu ul li:nth-child(2) i {
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.side-bar .side-menu ul li:nth-child(3) i {
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.side-bar .side-menu ul li:nth-child(4) i {
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.side-bar .side-menu ul li:nth-child(5) i {
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.side-bar .side-menu ul li:hover i {
+  color: #000;
+}
+.side-bar .side-menu ul li .content_1,
+.side-bar .side-menu ul li .content_2,
+.side-bar .side-menu ul li .content_3,
+.side-bar .side-menu ul li .content_4,
+.side-bar .side-menu ul li .content_5 {
+  position: fixed;
+  top: 0;
+  left: 400px;
+  width: 800px;
+  height: 420px;
+  line-height: 420px;
+  background-color: rgba(0,0,0,.7);
+  display: none;
+  border-radius: 0 20px 20px 0;
+}
+.side-bar .side-menu ul li:nth-child(1):hover .content_1 {
+  display: block;
+  color: #fff;
+}
+.side-bar .side-menu ul li:nth-child(2):hover .content_2 {
+  display: block;
+  color: #fff;
+} 
+.side-bar .side-menu ul li:nth-child(3):hover .content_3 {
+  display: block;
+  color: #fff;
+} 
+.side-bar .side-menu ul li:nth-child(4):hover .content_4 {
+  display: block;
+  color: #fff;
+} 
+.side-bar .side-menu ul li:nth-child(5):hover .content_5 {
+  display: block;
+  color: #fff;
+} 
