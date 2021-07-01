@@ -187,6 +187,9 @@ animation();
 const midCon = document.querySelector('.mid-container');
 const midleft = document.querySelector('.mid-l');
 const midRight = document.querySelector('.mid-r');
+const sBar = document.querySelector('.side-bar');
+const front = document.querySelector('.side-menu');
+
 
 midCon.addEventListener('click', () => {
   midCon.classList.toggle('turn');
@@ -194,3 +197,6 @@ midCon.addEventListener('click', () => {
   midRight.classList.toggle('turn');
 })
 
+sBar.addEventListener('click', () => {
+  front.classList.toggle('bar');
+})
