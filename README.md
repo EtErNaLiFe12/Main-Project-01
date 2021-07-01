@@ -255,3 +255,44 @@
 ### HIDDEN-PAGE#9
 
  - canvas 사용
+ - bubble을 top / bottom / left / right 으로 튕기게함 (공튀기기와 같이)
+ ```js
+     // viewport를 튕기게 하는 조건부
+     update() { // 프레임마다 속성들을 변화시킴 
+      this.x += this.directionX;
+      this.y += this.directionY; 
+      
+      if(this.y + this.size + 220 > canvas.height || this.y - this.size < -100) { // 바운드 처리
+        this.directionY *= -1;
+      }
+
+      if(this.x + 230 > canvas.width-this.size ) {
+        this.directionX *= -1;
+      } else if (this.x - this.size < -100){
+        this.directionX *= -1;
+      }
+    }
+ ```
+ - bubble중 1개는 임의로 keyframe animation을 통해 움직이게 함.
+---
+ ### HIDDEN-PAGE#10
+
+ - canvas 사용 (비)
+ - canvas 사용 (밤하늘)
+ - 별이 움직이는 애니메이션 구현 - x값 / y값에 dx / dy값을 더해주고 Math.random() 함수를 통해  
+   랜덤한 움직임 구현
+```js
+ // 조건부
+  condition() {
+    this.xs +=  this.directionXs;
+    this.ys +=  this.directionYs;
+
+    if(this.xs + this.directionXs > canvas1.width) {
+      this.xs = 0;
+    }
+    if(this.ys + this.directionYs > canvas1.height) {
+      this.ys = 0;
+    }
+```
+ - side bar 추가 - 기존 input태그의 checkbox 이용과 달리 이벤트 리스너로 클래스 toggle을 통해 구현
+ - 기타 페이지 내용 구현 (html / css / js)
